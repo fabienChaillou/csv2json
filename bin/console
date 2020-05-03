@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+$container = require dirname(__DIR__) . '/config/bootstrap.php';
+
+$app = new Application();
+$app->setContainer($container);
+
+/**
+ * example php bin/console $commandName $fileName --fields "<field,fields,fields,..>" --aggregate value --desc value --pretty
+ * contrainre
+ * --fields "<field1,field2,field3,etc" : liste des champs qui doivent sortir dans le JSON avec un séparateur intelligent (tous par défaut)
+ * --aggregate <field> : aggrège les données sur un champ
+ * --desc <file> : fichier de description des types de champ (voir plus bas la description de ce fichier)
+ * --pretty : le fichier JSON doit être mis en forme pour une lecture facile. Par défaut, tout est sur une seule ligne.
+ */
+//$opts = getopt(null, ["fields:", "aggregate:", "desc:", "pretty"]);
+//var_dump($argv);
+
+$app->command($argv);
+
+$app->run();
